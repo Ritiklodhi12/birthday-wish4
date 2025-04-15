@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Milee!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        body {
+            background: linear-gradient(135deg, #f9a8d4 0%, #c4b5fd 100%);
+            font-family: 'Pacifico', cursive;
+            margin: 0;
+            position: relative;
+        }
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px;
+            animation: explode 1s ease-out forwards;
+            z-index: 1;
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(30); opacity: 0; }
+        }
+        .floating-heart {
+            position: absolute;
+            animation: float 8s linear infinite;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-4">
+    <div class="text-center relative z-10 p-4">
+        <div class="pulse text-6xl md:text-8xl mb-4" style="color: #ff0066;">❤️</div>
+        <h1 class="text-4xl md:text-7xl font-bold mb-6" style="text-shadow: 0 0 8px rgba(255,255,255,0.8);">Happy Birthday Milee</h1>
+        <p class="text-xl md:text-2xl mb-8" style="text-shadow: 0 0 5px rgba(255,255,255,0.5);">You are the most beautiful gift in my life ❤️</p>
+        
+        <div class="space-y-4">
+            <a href="gallery_v2.html" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition duration-300 text-lg md:text-xl shadow-lg">
+                Our Beautiful Memories
+            </a>
+            <a href="notebook.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition duration-300 text-lg md:text-xl shadow-lg">
+                Open My Heart's Message
+            </a>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="music/tum-se-milne-ko.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function createFirework() {
+            const colors = ['#ff0000', '#ff00ff', '#ffff00', '#00ffff', '#ff6600'];
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.top = Math.random() * 100 + 'vh';
+            firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1000);
+        }
+        setInterval(createFirework, 200);
+
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+        }
+
+        // Play music on page load if autoplay is allowed
+        const music = document.getElementById('bg-music');
+        music.volume = 0.5; // Set volume to 50%
+        music.play().catch(() => {
+            console.log('Autoplay blocked. Waiting for user interaction.');
+        });
+
+        // Play music on user click if autoplay is blocked
+        document.addEventListener('click', function () {
+            music.play();
+        });
+    </script>
+</body>
+</html>

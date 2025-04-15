@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories | milee's Birthday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f9a8d4 0%, #c4b5fd 100%);
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .photo-caption {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .photo-caption {
+            opacity: 1;
+        }
+        .music-player {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white p-6">
+    <div class="container mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-10">Our Beautiful Memories</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Photo 1 -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-2xl">
+<img src="asset/Snapchat-673624760.jpg" 
+                     alt="Memory with milee" 
+                     class="w-full h-64 object-cover">
+                <div class="photo-caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-xl font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-2xl">
+<img src="asset/Snapchat-1040664023.jpg" 
+                     alt="Happy Times" 
+                     class="w-full h-64 object-cover">
+                <div class="photo-caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-xl font-semibold"></p>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-2xl">
+<img src="asset/Snapchat-1379473451.jpg" 
+                     alt="Special Moment" 
+                     class="w-full h-64 object-cover">
+                <div class="photo-caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-xl font-semibold"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- "Tum Mile" Music Player -->
+        <div class="music-player fixed bottom-4 right-4 p-4 rounded-lg shadow-lg">
+            <p class="text-lg font-bold mb-2">Playing: Tum Mile</p>
+            <audio controls autoplay>
+                <source src="music/tum-se-milne-ko.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="index.html" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 mr-4">
+                Back Home
+            </a>
+            <a href="notebook.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                Write a Message
+            </a>
+        </div>
+    </div>
+</body>
+</html>
